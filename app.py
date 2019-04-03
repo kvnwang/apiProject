@@ -25,7 +25,14 @@ def test():  return jsonify({"version":"1.0"})
 
 
 
-# adds a user into db
+# adds a user into db from body json request
+# {
+#     "address": "3 Adler Ave",
+#     "age": "30",
+#     "email": "test@gmail.com",
+#     "name": "Kevin",
+#     "phone": "914800453"
+# }
 @app.route("/api/add_user", methods = ['POST'])
 def addUser():
     try:
