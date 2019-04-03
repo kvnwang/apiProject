@@ -15,15 +15,10 @@ def convert_user(user):
 
 def convert_users(users):
     res=[]
-    for user in users: res.append(convert_user(dict(user)))
+    for user in users:
+        print(user)
+        res.append(convert_user(dict(user)))
     return res
-
-def json_response(data='', status=200, headers=None):
-    headers = headers or {}
-    if 'Content-Type' not in headers:
-        headers['Content-Type'] = JSON_MIME_TYPE
-
-    return make_response(data, status, headers)
 
 def valid_params(filterData):
     s=set(('name', 'email', 'age', 'phone', 'address'))
@@ -32,3 +27,9 @@ def valid_params(filterData):
             return False
     return True
 
+def normalize_params(data):
+    if 'age' in data:
+        data['age']=str(data['age'])
+    if 'phone' in data:
+        data['phone']=str(data['phone'])
+    return data

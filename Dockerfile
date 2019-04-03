@@ -1,4 +1,5 @@
 FROM python:3.4-alpine
+ENV IS_DOCKER=1
 ADD . /todo
 WORKDIR /todo
 RUN pip install -r requirements.txt
