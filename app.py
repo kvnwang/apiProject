@@ -113,10 +113,7 @@ def update_user(user_id):
 
 
 
-def foo():
-  print
-  'bar'
-  
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
