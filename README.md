@@ -7,4 +7,5 @@ docker-compose up
 
 Local:
 
+python app.py
 
