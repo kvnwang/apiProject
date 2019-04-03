@@ -1,0 +1,25 @@
+version: '3.6'
+
+services:
+  web:
+    build: .
+    command: python -u app.py
+    ports:
+      - "80:80"
+    volumes:
+      - .:/todo
+    links:
+      - mongodb
+    environment:
+      - DB_PORT_27017_TCP_ADDR=27017
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
+    environment:
+       - PYTHONUNBUFFERED=1
+
