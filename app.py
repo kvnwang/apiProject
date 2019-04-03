@@ -35,7 +35,6 @@ def addUser():
         status=db.Users.insert(userData)
         user=db.Users.find_one({"_id": ObjectId(status)})
         return jsonify(utils.convert_user(user))
-
     except Exception as e:
         return dumps({'error' : str(e)})
 
@@ -114,7 +113,10 @@ def update_user(user_id):
 
 
 
-
+def foo():
+  print
+  'bar'
+  
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
